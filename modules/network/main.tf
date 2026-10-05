@@ -28,7 +28,7 @@ resource "azurerm_subnet" "subnet" {
   name                 = "snet-${each.key}"
   resource_group_name  = var.rg_name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = [
+  address_prefixes = [
     cidrsubnet(var.address_space, 8, each.value)
   ]
 }
